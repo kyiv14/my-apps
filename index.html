@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои Программы — Портфолио в Стиле Apple</title>
+    <style>
+        /*
+        ========================================
+        Стилизация в стиле Apple
+        ========================================
+        */
+        :root {
+            --apple-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            --main-text-color: #1d1d1f; /* Почти черный */
+            --light-text-color: #6e6e73;
+            --background-color: #f5f5f7; /* Светло-серый фон */
+            --card-background: #fff;
+            --focus-color: #007aff; /* Синий акцент */
+            --border-radius: 12px;
+            --shadow-light: 0 4px 16px rgba(0, 0, 0, 0.08); /* Мягкая тень */
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15); /* Тень при наведении */
+            --transition-duration: 0.3s;
+        }
+
+        body {
+            font-family: var(--apple-font);
+            color: var(--main-text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            text-rendering: optimizeLegibility; 
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        /*
+        ========================================
+        Макет и Хедер
+        ========================================
+        */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 80px;
+        }
+
+        h1 {
+            font-size: 3.5rem; 
+            font-weight: 700;
+            letter-spacing: -0.02em; 
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            font-size: 1.5rem;
+            color: var(--light-text-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /*
+        ========================================
+        Стили Карточек (Плашек)
+        ========================================
+        */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px; 
+        }
+
+        .program-card {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 200px; 
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--main-text-color);
+            
+            /* Анимация Apple-style */
+            transition: transform var(--transition-duration) ease-out, 
+                        box-shadow var(--transition-duration) ease-out;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px) scale(1.02); 
+            box-shadow: var(--shadow-hover);
+        }
+
+        .program-card:active {
+            transform: scale(0.98); 
+            box-shadow: var(--shadow-light);
+            transition-duration: 0.1s; 
+        }
+
+        /* ---------------------------------------- */
+        /* Стили для иконки-эмодзи (для оставшихся плашек) */
+        /* ---------------------------------------- */
+        .card-icon {
+            font-size: 3rem; 
+            margin-bottom: 15px;
+            color: var(--focus-color); 
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 48px; 
+        }
+        
+        /* ---------------------------------------- */
+        /* Стили для иконки-изображения */
+        /* ---------------------------------------- */
+        .card-icon-img {
+            margin-bottom: 15px;
+            height: 48px; 
+        }
+
+        .card-icon-img img {
+            height: 48px; 
+            width: 48px;
+            object-fit: cover;
+            border-radius: 12px; /* Округлые углы как у иконок приложений */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+            display: block; 
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: var(--light-text-color);
+            margin-top: auto; 
+        }
+
+        /*
+        ========================================
+        Адаптивность (Media Queries)
+        ========================================
+        */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p.subtitle {
+                font-size: 1.2rem;
+            }
+
+            header {
+                padding: 40px 20px 60px;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr; 
+                gap: 15px;
+            }
+
+            .program-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Мои Программные Продукты</h1>
+        <p class="subtitle">Откройте для себя мощь и простоту моих решений. Каждая программа создана с вниманием к деталям и пользовательскому опыту.</p>
+    </header>
+
+    <div class="container">
+        <section class="programs-grid">
+            <a href="https://read24.netlify.app/" target="_blank" class="program-card" aria-label="Перейти на сайт M3U редактора">
+                <div class="card-icon-img">
+                    <img src="https://read24.netlify.app/icon1.ico" alt="Иконка M3U редактор">
+                </div>
+                <h2 class="card-title">M3U редактор</h2>
+                <p class="card-description">Инструмент для повышения продуктивности с минималистичным интерфейсом и глубокой интеграцией.</p>
+            </a>
+            
+            <a href="https://iptv-box.netlify.app/" target="_blank" class="program-card" aria-label="Перейти на сайт IPTV Box">
+                <div class="card-icon-img">
+                    <img src="https://iptv-box.netlify.app/icon.ico" alt="Иконка IPTV Box">
+                </div>
+                <h2 class="card-title">IPTV Box</h2>
+                <p class="card-description">Мощный, но интуитивно понятный редактор графики с акцентом на векторную точность.</p>
+            </a>
+
+            <a href="https://short24.netlify.app" target="_blank" class="program-card" aria-label="Перейти на сайт Short24">
+                <div class="card-icon-img">
+                    <img src="https://short24.netlify.app/short.ico" alt="Иконка Short24">
+                </div>
+                <h2 class="card-title">Short24</h2>
+                <p class="card-description">Быстрый анализ больших данных с красивой визуализацией и настраиваемыми отчетами.</p>
+            </a>
+            
+            <a href="https://cards24.vercel.app/" target="_blank" class="program-card" aria-label="Перейти на сайт Мои карты">
+                <div class="card-icon-img">
+                    <img src="https://cards24.vercel.app/icon.ico" alt="Иконка Мои карты">
+                </div>
+                <h2 class="card-title">Мои карты</h2>
+                <p class="card-description">Безопасный менеджер бонусных и дисконтных карт с быстрым доступом.</p>
+            </a>
+
+            <a href="https://moe-iptv.vercel.app/" target="_blank" class="program-card" aria-label="Перейти на сайт IPTV Manager">
+                <div class="card-icon-img">
+                    <img src="https://moe-iptv.vercel.app/iptv_icon.ico" alt="Иконка IPTV Manager">
+                </div>
+                <h2 class="card-title">IPTV Manager</h2>
+                <p class="card-description">Простое приложение для управления вашими плейлистами IPTV и источниками.</p>
+            </a>
+            
+            <a href="https://pdf24.vercel.app/" target="_blank" class="program-card" aria-label="Перейти на сайт PDF Инструменты">
+                <div class="card-icon-img">
+                    <img src="https://pdf24.vercel.app/pdf.jpg" alt="Иконка PDF Инструменты">
+                </div>
+                <h2 class="card-title">PDF Инструменты</h2>
+                <p class="card-description">Набор мощных, но простых инструментов для работы с PDF-файлами онлайн.</p>
+            </a>
+
+            <a href="https://ytphoto.netlify.app/" target="_blank" class="program-card" aria-label="Перейти на сайт Превью с YouTube">
+                <div class="card-icon-img">
+                    <img src="https://ytphoto.netlify.app/photo.jpg" alt="Иконка Превью с YouTube">
+                </div>
+                <h2 class="card-title">Превью с YouTube</h2>
+                <p class="card-description">Инструмент для быстрого получения и сохранения превью (обложек) с любого видео YouTube.</p>
+            </a>
+
+            <a href="https://progi24.vercel.app/" target="_blank" class="program-card" aria-label="Перейти на сайт Программы для IPTV">
+                <div class="card-icon-img">
+                    <img src="https://progi24.vercel.app/smart-tv.png" alt="Иконка Программы для IPTV">
+                </div>
+                <h2 class="card-title">Программы для IPTV</h2>
+                <p class="card-description">Обзор и рекомендации лучших программ для просмотра IPTV на Smart TV, ПК и мобильных.</p>
+            </a>
+
+            <a href="https://gmail24.netlify.app/" target="_blank" class="program-card" aria-label="Перейти на сайт Прямая ссылка Google Диска">
+                <div class="card-icon-img">
+                    <img src="https://gmail24.netlify.app/gmail.png" alt="Иконка Прямая ссылка Google Диска">
+                </div>
+                <h2 class="card-title">Прямая ссылка Google Диска</h2>
+                <p class="card-description">Инструмент для генерации прямой (без страниц-посредников) ссылки для файлов Google Drive.</p>
+            </a>
+
+            <a href="https://site-programma-10.com" target="_blank" class="program-card" aria-label="Подробнее о Программе 10">
+                <div class="card-icon">🚀</div>
+                <h2 class="card-title">LaunchPad</h2>
+                <p class="card-description">Центр запуска приложений и автоматизации рутинных задач одним кликом.</p>
+            </a>
+
+        </section>
+    </div>
+</body>
+</html>
