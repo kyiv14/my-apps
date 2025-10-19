@@ -22,6 +22,11 @@
             --shadow-light: 0 4px 16px rgba(0, 0, 0, 0.08); /* Мягкая тень */
             --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15); /* Тень при наведении */
             --transition-duration: 0.3s;
+            /* Новые переменные для увеличенного размера иконки */
+            --icon-base-size: 48px;
+            --icon-scale-factor: 1.5;
+            --icon-final-size: calc(var(--icon-base-size) * var(--icon-scale-factor)); /* 48px * 1.5 = 72px */
+            --card-icon-font-size: calc(3rem * var(--icon-scale-factor)); /* 3rem * 1.5 = 4.5rem */
         }
 
         body {
@@ -109,13 +114,14 @@
         /* Стили для иконки-эмодзи (для оставшихся плашек) */
         /* ---------------------------------------- */
         .card-icon {
-            font-size: 3rem; 
+            font-size: var(--card-icon-font-size); /* Увеличенный размер для эмодзи */
             margin-bottom: 15px;
             color: var(--focus-color); 
             display: flex;
+            /* Центрирование иконки-эмодзи */
             align-items: center;
-            justify-content: flex-start;
-            height: 48px; 
+            justify-content: center; /* Центрирование по горизонтали */
+            height: var(--icon-final-size); /* Увеличенная высота для контейнера */
         }
         
         /* ---------------------------------------- */
@@ -123,12 +129,16 @@
         /* ---------------------------------------- */
         .card-icon-img {
             margin-bottom: 15px;
-            height: 48px; 
+            height: var(--icon-final-size); /* Увеличенная высота контейнера */
+            display: flex;
+            /* Центрирование иконки-изображения */
+            align-items: center;
+            justify-content: center; /* Центрирование по горизонтали */
         }
 
         .card-icon-img img {
-            height: 48px; 
-            width: 48px;
+            height: var(--icon-final-size); /* Увеличение размера иконки */
+            width: var(--icon-final-size); /* Увеличение размера иконки */
             object-fit: cover;
             border-radius: 12px; /* Округлые углы как у иконок приложений */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
@@ -139,6 +149,8 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 10px;
+            /* Центрирование названия программы */
+            text-align: center; 
         }
 
         .card-description {
